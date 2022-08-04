@@ -22,13 +22,9 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
-import javax.swing.AbstractButton;
-import javax.swing.DefaultComboBoxModel;
 
 @SuppressWarnings("serial")
 public class AddClazzDialog extends JDialog implements ActionListener {
@@ -97,9 +93,9 @@ public class AddClazzDialog extends JDialog implements ActionListener {
 		clazzcodefield = new HintTextField("");
 		clazzcodefield.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 18));
 		clazzcodefield.setBounds(165, 72, 290, 40);
-		int total = new ClazzData().getTotalClazz();
-		clazzcodefield.setText(String.valueOf(total + 1));
-		clazzcodefield.setEditable(false);
+		// int total = new ClazzData().getTotalClazz();
+		// clazzcodefield.setText(String.valueOf(total + 1));
+		// clazzcodefield.setEditable(false);
 		getContentPane().add(clazzcodefield);
 		clazzcodefield.setColumns(10);
 		// subject
@@ -217,6 +213,9 @@ public class AddClazzDialog extends JDialog implements ActionListener {
 					|| roomnamecombo.getSelectedIndex() == 0 || timeslotnamecombo.getSelectedIndex() == 0
 					|| semeterfield.getText().isEmpty()) {
 				showerror();
+			} else if (new ClazzData().isExist(clazzcodefield.getText())) {
+				JOptionPane.showMessageDialog(new JFrame(), "Class ID is exist !", "Dialog",
+						JOptionPane.WARNING_MESSAGE);
 			} else {
 				try {
 					Clazz c = new Clazz();

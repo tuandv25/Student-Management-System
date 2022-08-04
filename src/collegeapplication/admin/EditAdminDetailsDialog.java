@@ -28,13 +28,6 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-/*
- * Title : EditAdminDetailsDialog.java
- * Created by : Ajaysinh Rathod
- * Purpose : With the help of this file admin can edit collage details
- * Mail : ajaysinhrathod1290@gmail.com
- */
-
 @SuppressWarnings("serial")
 public class EditAdminDetailsDialog extends JDialog implements ActionListener {
 
@@ -288,7 +281,6 @@ public class EditAdminDetailsDialog extends JDialog implements ActionListener {
 					filesizenote.setForeground(Color.red);
 					filesizenote.setText("Image size is greater than 1 MB");
 				}
-				
 
 			}
 		});
@@ -319,7 +311,7 @@ public class EditAdminDetailsDialog extends JDialog implements ActionListener {
 				ad.setPassword(String.valueOf(passwordfield.getPassword()));
 				ad.setWebsite(websitefield.getText());
 
-				if(file!=null) {
+				if (file != null) {
 					try {
 						ad.setProfilePic(ImageIO.read(file));
 					} catch (Exception exp) {
@@ -328,7 +320,7 @@ public class EditAdminDetailsDialog extends JDialog implements ActionListener {
 				} else {
 					ad.setProfilePic(a.getProfilePic());
 				}
-			
+
 				int result = new AdminData().updateAdminDetails(ad);
 				if (result > 0) {
 					am.adminprofilepanel.setVisible(false);

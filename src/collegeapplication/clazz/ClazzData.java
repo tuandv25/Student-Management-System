@@ -114,6 +114,20 @@ public class ClazzData {
 		return result;
 	}
 
+	public boolean isExist(String classID) {
+		try {
+			String query = " select count(*) from class where classID='" + classID + "'";
+
+			Statement st = con.createStatement();
+			ResultSet rs = st.executeQuery(query);
+			rs.next();
+			return rs.getInt(1) == 1 ? true : false;
+		} catch (Exception exp) {
+			exp.printStackTrace();
+		}
+		return false;
+	}
+
 	public String[] getClazzcode() {
 		String classID[] = new String[this.getTotalClazz()];
 		String query = "select classID from class";

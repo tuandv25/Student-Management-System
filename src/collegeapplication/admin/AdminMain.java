@@ -48,12 +48,6 @@ import collegeapplication.student.ViewStudentPanel;
 //import collegeapplication.subject.AssignSubjectPanel;
 import collegeapplication.subject.SubjectPanel;
 
-/*
- * Title : AdminMain.java
- * Created by : Ajaysinh Rathod
- * Purpose : Main admin frame
- * Mail : ajaysinhrathod1290@gmail.com
- */
 @SuppressWarnings("serial")
 public class AdminMain extends JFrame implements ActionListener {
 
